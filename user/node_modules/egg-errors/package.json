@@ -1,0 +1,49 @@
+{
+  "name": "egg-errors",
+  "version": "2.3.2",
+  "description": "egg-errors provide two kinds of errors that is Error and Exception.",
+  "scripts": {
+    "contributor": "git-contributor",
+    "test": "egg-bin test --typescript",
+    "cov": "egg-bin cov --typescript",
+    "tsc": "tsc -p tsconfig.json",
+    "ci": "npm run lint && npm run cov && npm run tsc",
+    "prepublishOnly": "npm run tsc",
+    "lint": "eslint . --ext .ts"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.d.ts"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.12",
+    "dedent": "^0.7.0",
+    "egg-bin": "^4.9.0",
+    "egg-mock": "^4.0.1",
+    "eslint": "^6",
+    "eslint-config-egg": "^9.0.0",
+    "git-contributor": "^1.0.10",
+    "statuses": "^1.5.0",
+    "toidentifier": "^1.0.0",
+    "typescript": "^3.2.2"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eggjs/egg-errors.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eggjs/egg/issues"
+  },
+  "eslintIgnore": [
+    "coverage"
+  ],
+  "author": "popomore",
+  "license": "MIT"
+}
