@@ -1,12 +1,18 @@
 const Koa = require('koa');
+const serve = require('koa-static')
 const router = require('koa-router')();
 const logger = require('koa-logger');
+const path = require('path')
 const cacheMiddleware = require('./middleware/cache');
 const MQMiddleware = require('./middleware/mq');
 const rpcMiddleware = require('./middleware/rpc');
 const log = require('./utils/log');
 
 const app = new Koa();
+const root = path.resolve(__dirname, '..')
+
+// 作为静态资源服务
+app.use(serve(root + '/front/dist'));
 
 app.use(logger());
 app.use(
@@ -64,6 +70,8 @@ router.get('/createUser', async (ctx) => {
 
   ctx.body = res;
 });
+
+
 
 app.listen(3000, () => {
   console.log('启动成功');
